@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBchat</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .signin-form {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-top-left {
+            margin-bottom: 20px;
+        }
+        .form-bottom {
+            text-align: left;
+        }
+        .alert {
+            color: red;
+        }
+        .pswd_icon_bg {
+            background: white;
+            height: 32px;
+            width: 30px;
+            position: absolute;
+            display: flex;
+            align-content: center;
+            overflow: hidden;
+            margin: 0 0 0 525px;
+        }
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="signin-form">
+        <div class="form-top-left">
+            <h3 style="padding-top:10px;">Login to our site</h3>
+            <p style="margin-top:-20px; padding-bottom:10px;">Enter Email and password to log on:</p>
+        </div>
+        <div class="form-bottom">
+            <form action="register.php" method="POST" class="login-form">
+                <label for="form-email">Email Address</label>
+                <input type="email" name="log_email" placeholder="Email Address" value="<?php if(isset($SESSION['log_email'])) { echo $_SESSION['log_email']; } ?>" required>
+                
+                <label for="form-password">Password</label>
+                <span class="pswd_icon_bg" onclick="log_pswd_toggale()"><i class="fa-regular fa-eye" id="pswd_show" style="margin: auto;"></i></span>
+                <input type="password" id="login_pswd" name="log_password" placeholder="Password" required>
+                
+                <?php if(in_array("Email or Password was incorrect", $error_array_login)) echo "<p class='alert'>Email or Password was incorrect</p>"; ?>
+                
+                <button type="submit" style="margin-bottom:20px" name="login_button">Sign in!</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function log_pswd_toggale() {
+            var x = document.getElementById("login_pswd");
+            var img = document.getElementById("pswd_show");
+            if (x.type === "password") {
+                img.className = "fa-regular fa-eye-slash"
+                x.type = "text";
+            } else {
+                img.className = "fa-regular fa-eye"
+                x.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
