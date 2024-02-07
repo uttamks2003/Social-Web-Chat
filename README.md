@@ -27,6 +27,7 @@ Register a new account or log in with existing credentials.
 Start chatting with other users who are online.
 
  ## Screenshots
+![Alt text](https://github.com/uttamks2003/Social-Web-Chat/blob/master/assets/images/webchat.png)
 
 
 
