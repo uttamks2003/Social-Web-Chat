@@ -10,7 +10,7 @@ This project is a simple web chat application developed using PHP for server-sid
 Clone the repository to your local machine:
 bash
 Copy code
-git clone https://github.com/yourusername/social-web-chat.git
+git clone https://github.com/uttamks2003/social-web-chat.git
 Set up a local server environment (e.g., XAMPP, WAMP, or MAMP).
 
 Import the provided SQL file (database.sql) into your database management system (e.g., phpMyAdmin) to create the necessary tables.
